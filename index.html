@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="envelope" id="envelope">
+        <div class="heart" id="heart">❤️</div>
+        <div class="container" id="container">
+            <h1>Will You Be My Valentine?</h1>
+            <p>I really like you, and I was wondering if you would be my Valentine this year.</p>
+            <div class="buttons">
+                <button id="yesButton">Yes!</button>
+                <button id="noButton">No</button>
+            </div>
+            <p id="response"></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('heart').addEventListener('click', function() {
+    const envelope = document.getElementById('envelope');
+    const container = document.getElementById('container');
+
+    envelope.style.transform = 'translateY(-100px)'; // Open envelope effect
+    container.style.opacity = '1'; // Show container
+    container.style.transform = 'translateY(0)'; // Slide up effect
+});
+
+const noButton = document.getElementById('noButton');
+const yesButton = document.getElementById('yesButton');
+const response = document.getElementById('response');
+
+noButton.addEventListener('mouseover', () => {
+    const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+    noButton.style.position = 'absolute';
+    noButton.style.left = `${x}px`;
+    noButton.style.top = `${y}px`;
+});
+
+yesButton.addEventListener('click', () => {
+    response.textContent = "I could search the whole world and never find anyone as special as you Cielito💖. Its a date";
+    response.style.opacity = 1;
+});
+
+noButton.addEventListener('click', () => {
+    response.textContent = "Aww, maybe next time! 😢";
+    response.style.opacity = 1;
+});
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
